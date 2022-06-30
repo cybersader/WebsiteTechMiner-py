@@ -31,7 +31,7 @@ A little Python project to automate gathering website profiling data from "Built
     - Make sure you've installed the project
     - `cd` into the project
     - If you don't have Python, then you're going to need that use pip https://www.python.org/downloads/
-    - `pip install requirements.txt`
+    - `pip install -r requirements.txt`
 
 ### Setting up BuiltWith
 - Create a BuiltWith Account - https://builtwith.com/
