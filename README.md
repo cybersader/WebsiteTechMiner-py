@@ -1,9 +1,6 @@
 
 # WebsiteTechMiner-py ⛏
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/cybersader/WebsiteTechMiner-py) 
-
-
 A little Python project to automate gathering website profiling data from "BuiltWith" & "Wappalyzer" for tech stack information, technographic data, website reports, website tech lookups, website architecture lookups, etc.
 
 ## Getting Started
