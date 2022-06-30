@@ -3,6 +3,8 @@
 
 A little Python project to automate gathering website profiling data from "BuiltWith" & "Wappalyzer" for tech stack information, technographic data, website reports, website tech lookups, website architecture lookups, etc.
 
+#### (Current) Exported Data Fields: ***[domain,tech_profiler_tool_used,category,technology_name,description]***
+
 ## Getting Started
 
 ### ⬇ Installation
