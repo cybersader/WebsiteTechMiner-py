@@ -155,7 +155,7 @@ def SingleDomainMiner( domain_name, config ):
 				bw_tech_name = bw_tech['Name']
 				bw_tech_category_name = bw_tech['Tag']
 				bw_tech_desc = bw_tech['Description']
-				tech_row = [bw_domain_name,'BuiltWith',bw_tech_name,bw_tech_category_name,bw_tech_desc]
+				tech_row = [bw_domain_name,'BuiltWith',bw_tech_category_name,bw_tech_name,bw_tech_desc]
 				tech_mining_data.append(tech_row)
 				if is_verbose:
 						print(tech_row)
