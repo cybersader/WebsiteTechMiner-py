@@ -36,7 +36,7 @@ A little Python project to automate gathering website profiling data from "Built
 ### Setting up BuiltWith
 - Create a BuiltWith Account - https://builtwith.com/
 - Go to https://api.builtwith.com/
-- Create and copy the API key into the `WebTechMinerNG_setup.json` file using a notepad or editor
+- Create and copy the API key into the `WebTechMiner_setup.json` file using a notepad or editor
 - Make sure to put it in the quotes after `builtwith-API-key` 
 
 ## Usage
