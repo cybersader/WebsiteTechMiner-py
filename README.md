@@ -7,7 +7,7 @@ A little Python project to automate gathering website profiling data from "Built
 - 🔒 Data Privacy Activities
     - Vendor Discovery
     - Risk Management
-    - Data Privacy Assessments
+    - Data Privacy Read-Ahead Material
 - 🖥️ Cyber Security Activities
     - Reconnaissance
     - OSINT
