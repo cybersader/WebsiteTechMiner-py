@@ -11,7 +11,6 @@ A little Python project to automate gathering website profiling data from "Built
 - 🖥️ Cyber Security Activities
     - Reconnaissance
     - OSINT
-    - Risk Management
 - 🗺️ Other Discovery Activities
     - Business Intelligence
     - Marketing Activities
