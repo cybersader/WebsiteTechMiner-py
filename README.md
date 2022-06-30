@@ -3,6 +3,19 @@
 
 A little Python project to automate gathering website profiling data from "BuiltWith" & "Wappalyzer" for tech stack information, technographic data, website reports, website tech lookups, website architecture lookups, etc.
 
+### Uses of WebsiteTechMiner
+- 🔒 Data Privacy Activities
+    - Vendor Discovery
+    - Risk Management
+    - Data Privacy Assessments
+- 🖥️ Cyber Security Activities
+    - Reconnaissance
+    - OSINT
+    - Risk Management
+- 🗺️ Other Discovery Activities
+    - Business Intelligence
+    - Marketing Activities
+    - Competition Analysis
 #### Generated Data Fields: 
 - ***[ domain , tech_profiler_tool_used , category , technology_name , description (if one exists) ]***
 
