@@ -41,7 +41,7 @@ A little Python project to automate gathering website profiling data from "Built
 
 ## Usage
 
-###### WebsiteTechMiner currently has 2 options:
+###### ***WebsiteTechMiner-py currently has 2 options:***
 - -s, "single" (analyze a single domain)
 - -b, "bulk" (analyze a list of domains using a CSV file)
     - put them into rows, columns, or a combination of the two in Excel (it doesn't matter).
