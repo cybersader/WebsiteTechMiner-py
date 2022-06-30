@@ -190,7 +190,7 @@ def BulkDomainMiner(domain_list_csv, config ):
 		domains_bar.finish()
 	return bulk_tech_mining_data
 
-#Parse "WebTechMinerNG_setup.json"
+#Parse "WebTechMiner_setup.json"
 '''
 EXAMPLE JSON FILE
 {
@@ -212,7 +212,7 @@ print("")
 print(f"{Fore.GREEN} [+] {Fore.WHITE} ARGUMENTS PARSED")
 
 #load setup data form JSON file
-setup_file = open('WebTechMinerNG_setup.json',"r")
+setup_file = open('WebTechMiner_setup.json',"r")
 config = json.load(setup_file)
 print("")
 print(f"{Fore.GREEN} [+] {Fore.WHITE} LOADED CONFIG FILE")
@@ -240,7 +240,7 @@ if(ERROR_BW or ERROR_WPLZ or ERROR_NO_OUTPUT_FILE):
 	print(f"{Fore.RED} [ERROR] {Fore.WHITE} Fix config file")
 	quit()
 print("")
-print("CONFIG File Settings ('WebTechMinerNG_setup.json')")
+print("CONFIG File Settings ('WebTechMiner_setup.json')")
 print("")
 print("--------------------------------------")
 print("builtwith-API-key ->",builtwith_key)
