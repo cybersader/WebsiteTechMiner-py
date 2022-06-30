@@ -30,16 +30,16 @@ A little Python project to automate gathering website profiling data from "Built
 - Download
     - Simply download this repo, as is.
 
-### ✉ TempMail for Accounts
-- Make an email with https://temp-mail.org/en/
-- No need to use your real email since this is temporary.
-
 ### Requirements
 - Python dependencies:
     - Make sure you've installed the project
     - `cd` into the project
     - If you don't have Python, then you're going to need that use pip https://www.python.org/downloads/
     - `pip install -r requirements.txt`
+
+### ✉ TempMail for Accounts
+- Make an email with https://temp-mail.org/en/
+- No need to use your real email since this is temporary.
 
 ### Setting up Wappalyzer
 - Create a Wappalyzer Account - https://www.wappalyzer.com/
