@@ -5,7 +5,7 @@ A little Python project to automate gathering website profiling data from "Built
 
 ### Uses of WebsiteTechMiner
 - 👁️ Data Privacy Activities
-    - Vendor Discovery
+    - Vendor Discovery for Websites
     - Risk Management
     - Data Privacy Read-Ahead Material
 - 🖥️ Cyber Security Activities
