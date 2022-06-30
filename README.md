@@ -34,17 +34,18 @@ A little Python project to automate gathering website profiling data from "Built
 - Make an email with https://temp-mail.org/en/
 - No need to use your real email since this is temporary.
 
-### Setting up Wappalyzer
-- Create a Wappalyzer Account - https://www.wappalyzer.com/
-- Go to https://www.wappalyzer.com/apikey/
-- Create and copy the API key into the `WebTechMinerNG_setup.json` file using a notepad or editor
-- Make sure to put it in the quotes after `wappalyzer-API-key` 
 ### Requirements
 - Python dependencies:
     - Make sure you've installed the project
     - `cd` into the project
     - If you don't have Python, then you're going to need that use pip https://www.python.org/downloads/
     - `pip install -r requirements.txt`
+
+### Setting up Wappalyzer
+- Create a Wappalyzer Account - https://www.wappalyzer.com/
+- Go to https://www.wappalyzer.com/apikey/
+- Create and copy the API key into the `WebTechMinerNG_setup.json` file using a notepad or editor
+- Make sure to put it in the quotes after `wappalyzer-API-key` 
 
 ### Setting up BuiltWith
 - Create a BuiltWith Account - https://builtwith.com/
