@@ -16,11 +16,11 @@ A little Python project to automate gathering website profiling data from "Built
     - Competition Analysis
 #### Generated Data Fields: 
 
-<img src="https://user-images.githubusercontent.com/106132469/176921390-9b6c36c1-a97c-4bf8-9362-7eb356013238.png" width="100">
-
 ##### All data is exported into the CSV file designated in the config file.
 
 - ***[ domain , tech_profiler_tool_used , category , technology_name , description (if one exists) ]***
+
+<img src="https://user-images.githubusercontent.com/106132469/176921390-9b6c36c1-a97c-4bf8-9362-7eb356013238.png" width="100">
 
 ## Getting Started
 
