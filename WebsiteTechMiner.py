@@ -18,6 +18,16 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 WebsiteTechMiner-py (CLI)
 Developed by - CyberSader
 Version - 0.0.1
+
+TODO:
+- Stop WTM if you run out of API credits for all tools
+- Error fidelity on error prints
+- Multiple API tokens in config file or some csv file
+- More fields from APIs to csv
+- Ability to use flags for fields
+- Unlimited domains on command line
+- http and https flags
+- Default command with domains after
 '''
 
 tool_desc="""'WebsiteTechMiner-py' aggregates technographic data on websites by using the APIs
@@ -92,14 +102,21 @@ def SingleDomainMiner( domain_name, config ):
 		domain_name="https://"+domain_name
 	
 	#Load Wappalyzer for domain
-	
 	wapp_response_json = Wappalyzer_API_request(domain_name, wappalyzer_key)
-	#print(json.dumps(wapp_response_json, indent=4, sort_keys=True))
-	403
+	if is_verbose:
+		print(json.dumps(wapp_response_json, indent=4, sort_keys=True))
 	
 	#Load Builtwith
 	bw_response_json = BuiltWith_API_request(domain_name, builtwith_key)
-	#print(json.dumps(bw_response_json, indent=4, sort_keys=True))
+	if is_verbose:
+		print(json.dumps(bw_response_json, indent=4, sort_keys=True))
+	
+	if(not bw_response_json['Errors']):
+		pass
+	else:
+		if(bw_response_json['Errors'][-1]['Code']==-4):
+			BW_API_CREDIT_ERROR = True
+			print(f"{Fore.RED} [OUT OF API CREDITS] {Fore.WHITE} You ran out of BuiltWith API credits")
 	
 	if(not bw_response_json['Errors']):
 		pass
@@ -140,26 +157,31 @@ def SingleDomainMiner( domain_name, config ):
 	##builtwith processing
 	if not BW_API_CREDIT_ERROR:
 		count=0
-		bw_domains = bw_response_json['Results'][0]['Result']['Paths']
-		for bw_domain in bw_domains:
-			if bw_domain['SubDomain']:
-				bw_domain_name = bw_domain['SubDomain']+"."+bw_domain['Domain']
+		#TODO:check for cases where results are empty
+		#TODO:check for type of error and return print based on the error code in response
+		if bw_response_json['Results'] and not bw_response_json['Errors']:
+			bw_domains = bw_response_json['Results'][0]['Result']['Paths']
+			for bw_domain in bw_domains:
+				if bw_domain['SubDomain']:
+					bw_domain_name = bw_domain['SubDomain']+"."+bw_domain['Domain']
+				else:
+					bw_domain_name = bw_domain['Domain']
+				count+=1
+				bw_techs = bw_domain['Technologies']
+				bar_bw_tech_text = 'Parsing BuiltWith Technologies - '+str(count)+"/"+str(len(bw_domains))
+				bar_bw = ShadyBar(bar_bw_tech_text, max=len(bw_techs))
+				for bw_tech in bw_techs:
+					bar_bw.next()
+					bw_tech_name = bw_tech['Name']
+					bw_tech_category_name = bw_tech['Tag']
+					bw_tech_desc = bw_tech['Description']
+					tech_row = [bw_domain_name,'BuiltWith',bw_tech_category_name,bw_tech_name,bw_tech_desc]
+					tech_mining_data.append(tech_row)
+					if is_verbose:
+							print(tech_row)
+				bar_bw.finish()
 			else:
-				bw_domain_name = bw_domain['Domain']
-			count+=1
-			bw_techs = bw_domain['Technologies']
-			bar_bw_tech_text = 'Parsing BuiltWith Technologies - '+str(count)+"/"+str(len(bw_domains))
-			bar_bw = ShadyBar(bar_bw_tech_text, max=len(bw_techs))
-			for bw_tech in bw_techs:
-				bar_bw.next()
-				bw_tech_name = bw_tech['Name']
-				bw_tech_category_name = bw_tech['Tag']
-				bw_tech_desc = bw_tech['Description']
-				tech_row = [bw_domain_name,'BuiltWith',bw_tech_category_name,bw_tech_name,bw_tech_desc]
-				tech_mining_data.append(tech_row)
-				if is_verbose:
-						print(tech_row)
-			bar_bw.finish()
+				pass
 	
 	return tech_mining_data
 
