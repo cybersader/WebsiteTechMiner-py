@@ -80,7 +80,7 @@ A little Python project to automate gathering website profiling data from "Built
    - connected websites, location, recursive search, etc.
 - Add in multiple successive API keys
    - CLI or in config
-- Default without options
+- Default without flags
 - Unlimited domains in command
 
 ### 🌐 Discovery 
