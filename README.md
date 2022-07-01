@@ -1,7 +1,21 @@
-
 # WebsiteTechMiner-py ⛏
 
 A little Python project to automate gathering website profiling data from "BuiltWith" & "Wappalyzer" for tech stack information, technographic data, website reports, website tech lookups, website architecture lookups, etc.
+
+### Uses of WebsiteTechMiner
+- 👁️ Data Privacy Activities
+    - Vendor Discovery for Websites
+    - Risk Management
+    - Data Privacy Read-Ahead Material for Privacy Assessments
+- 🖥️ Cyber Security Activities
+    - Reconnaissance
+    - OSINT
+- 🗺️ Other Discovery Activities
+    - Business Intelligence
+    - Marketing Activities
+    - Competition Analysis
+#### Generated Data Fields: 
+- ***[ domain , tech_profiler_tool_used , category , technology_name , description (if one exists) ]***
 
 ## Getting Started
 
@@ -14,6 +28,13 @@ A little Python project to automate gathering website profiling data from "Built
 - Download
     - Simply download this repo, as is.
 
+### Requirements
+- Python dependencies:
+    - Make sure you've installed the project
+    - `cd` into the project
+    - If you don't have Python, then you're going to need it to use pip https://www.python.org/downloads/
+    - `pip install -r requirements.txt`
+
 ### ✉ TempMail for Accounts
 - Make an email with https://temp-mail.org/en/
 - No need to use your real email since this is temporary.
@@ -23,12 +44,6 @@ A little Python project to automate gathering website profiling data from "Built
 - Go to https://www.wappalyzer.com/apikey/
 - Create and copy the API key into the `WebTechMinerNG_setup.json` file using a notepad or editor
 - Make sure to put it in the quotes after `wappalyzer-API-key` 
-### Requirements
-- Python dependencies:
-    - Make sure you've installed the project
-    - `cd` into the project
-    - If you don't have Python, then you're going to need that use pip https://www.python.org/downloads/
-    - `pip install -r requirements.txt`
 
 ### Setting up BuiltWith
 - Create a BuiltWith Account - https://builtwith.com/
@@ -58,4 +73,18 @@ A little Python project to automate gathering website profiling data from "Built
 #### command:
 ```python WebsiteTechMiner.py -b example_website_list.csv```
 
+## 💎 Future Developments
+
+### API Functionalities
+- Ability to choose from more fields
+   - connected websites, location, recursive search, etc.
+- Add in multiple successive API keys
+   - CLI or in config
+- Default without flags
+- Unlimited domains in command
+
+### 🌐 Discovery 
+- Subdomain discovery option
+- Connected website discovery
+- PI Discovery
 
