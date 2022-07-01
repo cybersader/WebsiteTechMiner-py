@@ -28,6 +28,7 @@ TODO:
 - Unlimited domains on command line
 - http and https flags
 - Default command with domains after
+- Add throttling features for when requests start dropping Wapp and BW
 '''
 
 tool_desc="""'WebsiteTechMiner-py' aggregates technographic data on websites by using the APIs
