@@ -33,7 +33,7 @@ A little Python project to automate gathering website profiling data from "Built
 - Python dependencies:
     - Make sure you've installed the project
     - `cd` into the project
-    - If you don't have Python, then you're going to need that use pip https://www.python.org/downloads/
+    - If you don't have Python, then you're going to need it to use pip https://www.python.org/downloads/
     - `pip install -r requirements.txt`
 
 ### ✉ TempMail for Accounts
