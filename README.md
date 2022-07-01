@@ -1,4 +1,3 @@
-
 # WebsiteTechMiner-py ⛏
 
 A little Python project to automate gathering website profiling data from "BuiltWith" & "Wappalyzer" for tech stack information, technographic data, website reports, website tech lookups, website architecture lookups, etc.
@@ -74,4 +73,18 @@ A little Python project to automate gathering website profiling data from "Built
 #### command:
 ```python WebsiteTechMiner.py -b example_website_list.csv```
 
+## 💎 Future Developments
+
+### API Functionalities
+- Ability to choose from more fields
+   - connected websites, location, recursive search, etc.
+- Add in multiple successive API keys
+   - CLI or in config
+- Default without options
+- Unlimited domains in command
+
+### 🌐 Discovery 
+- Subdomain discovery option
+- Connected website discovery
+- PI Discovery
 
