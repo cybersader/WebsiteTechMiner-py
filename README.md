@@ -37,7 +37,7 @@ A little Python project to automate gathering website profiling data from "Built
 
 ### ✉ TempMail for Accounts
 - Make an email with https://temp-mail.org/en/
-- No need to use your real email since this is temporary.
+- No need to use your real email for short-term discovery projects.
 
 ### DO NOT be fradulent
 - I'm not going to design any automated fradulent solutions to automatically generate temporary accounts and emails.
