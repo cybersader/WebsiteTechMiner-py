@@ -39,6 +39,10 @@ A little Python project to automate gathering website profiling data from "Built
 - Make an email with https://temp-mail.org/en/
 - No need to use your real email since this is temporary.
 
+### DO NOT be fradulent
+- I'm not going to design any automated fradulent solutions to automatically generate temporary accounts and emails.
+- If you are trying to process very large amounts of URLs, then please purchase plans from these tech lookup services.
+
 ### Setting up Wappalyzer
 - Create a Wappalyzer Account - https://www.wappalyzer.com/
 - Go to https://www.wappalyzer.com/apikey/
