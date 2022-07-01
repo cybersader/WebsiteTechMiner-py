@@ -84,7 +84,7 @@ A little Python project to automate gathering website profiling data from "Built
 - Unlimited domains in command
 
 ### 🌐 Discovery 
-- Subdomain discovery option
+- Recursive Subdomain discovery option
 - Connected website discovery
 - PI Discovery
 
