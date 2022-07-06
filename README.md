@@ -95,6 +95,7 @@ A little Python project to automate gathering website profiling data from "Built
 - Connected website discovery
 - Risk Management
     - Assumed PI discovery
+        - OneTrust VendorPedia API
     - Security Risk Score Attribution
     - Gain additional information from other Vendor Risk Databases
 
