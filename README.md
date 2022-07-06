@@ -93,5 +93,8 @@ A little Python project to automate gathering website profiling data from "Built
 ### 🌐 Discovery 
 - Recursive Subdomain discovery option
 - Connected website discovery
-- PI Discovery
+- Risk Management
+    - Assumed PI discovery
+    - Security Risk Score Attribution
+    - Gain additional information from other Vendor Risk Databases
 
