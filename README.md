@@ -57,6 +57,10 @@ A little Python project to automate gathering website profiling data from "Built
 - Go to https://api.builtwith.com/
 - Create and copy the API key into the `WebTechMiner_setup.json` file using a notepad or editor
 - Make sure to put it in the quotes after `builtwith-API-key` 
+#### 💵 Buying API Credits
+- BuiltWith API Credits are relatively cheap for what you get
+- Go to https://builtwith.com/api-credits
+- You can buy 2,000 API credits (2000 tech lookups) for 💵99$ 
 
 ## Usage
 
