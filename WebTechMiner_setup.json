@@ -1,6 +1,6 @@
 {
-	"builtwith-API-key":"",
+	"builtwith-API-key":"01d9406f-dccc-40fd-8cae-65f3dfac0466",
 	"wappalyzer-API-key":"",
 	"output-file-name":"website_technology_miner_results.csv",
-	"is_verbose":false
+	"is_verbose":true
 }

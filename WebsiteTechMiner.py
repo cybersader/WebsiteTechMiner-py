@@ -17,7 +17,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 '''
 WebsiteTechMiner-py (CLI)
 Developed by - CyberSader
-Version - 0.0.1
+Version - 0.0.4
 
 TODO:
 - Stop WTM if you run out of API credits for all tools
@@ -86,7 +86,7 @@ def BuiltWith_API_request(domain, api_key):
 		exit()
 	return bw_response.json()
 
-def SingleDomainMiner( domain_name, config ):
+def SingleDomainMiner( domain_name, config, API_Errors):
 	#techmining_data list
 	tech_mining_data = []
 	
@@ -102,91 +102,84 @@ def SingleDomainMiner( domain_name, config ):
 	if(not re.search("https://",domain_name)):
 		domain_name="https://"+domain_name
 	
-	#Load Wappalyzer for domain
-	wapp_response_json = Wappalyzer_API_request(domain_name, wappalyzer_key)
-	if is_verbose:
-		print(json.dumps(wapp_response_json, indent=4, sort_keys=True))
-	
-	#Load Builtwith
-	bw_response_json = BuiltWith_API_request(domain_name, builtwith_key)
-	if is_verbose:
-		print(json.dumps(bw_response_json, indent=4, sort_keys=True))
-	
-	if(not bw_response_json['Errors']):
-		pass
-	else:
-		if(bw_response_json['Errors'][-1]['Code']==-4):
-			BW_API_CREDIT_ERROR = True
-			print(f"{Fore.RED} [OUT OF API CREDITS] {Fore.WHITE} You ran out of BuiltWith API credits")
-	
-	if(not bw_response_json['Errors']):
-		pass
-	else:
-		if(bw_response_json['Errors'][-1]['Code']==-4):
-			BW_API_CREDIT_ERROR = True
-			print(f"{Fore.RED} [OUT OF API CREDITS] {Fore.WHITE} You ran out of BuiltWith API credits")
-	
 	#used to make row for each technology found
 	tech_row = []
 	
-	##wappalyzer processing
-	if not WAPP_API_CREDIT_ERROR:
-		#parse JSON
-		count=0
-		for wapp_domain_object in wapp_response_json:
-			#CATCHES WAPPALYZER API ERROR //TODO
-			try:
-				wapp_domain_name = wapp_domain_object['url']
-			except:
-				exit()
-			wapp_techs = wapp_domain_object['technologies']
-			count+=1
-			bar_wapp_tech_text = 'Parsing Wappalyzer Technologies - '+str(count)+"/"+str(len(wapp_response_json))
-			bar_wapp_techs = ShadyBar(bar_wapp_tech_text, max=len(wapp_techs))
-			for wapp_tech in wapp_techs:
-				wapp_tech_name = wapp_tech['name']
-				wapp_tech_categories = wapp_tech['categories']
-				bar_wapp_techs.next()
-				for wapp_tech_category in wapp_tech_categories:
-					wapp_tech_category_name = wapp_tech_category['name']
-					tech_row = [wapp_domain_name,'Wappalyzer',wapp_tech_category_name,wapp_tech_name,"NO DESC"]
-					tech_mining_data.append(tech_row)
-					if is_verbose:
-						print(tech_row)
-			bar_wapp_techs.finish()
-				
-	##builtwith processing
-	if not BW_API_CREDIT_ERROR:
-		count=0
-		#TODO:check for cases where results are empty
-		#TODO:check for type of error and return print based on the error code in response
-		if bw_response_json['Results'] and not bw_response_json['Errors']:
-			bw_domains = bw_response_json['Results'][0]['Result']['Paths']
-			for bw_domain in bw_domains:
-				if bw_domain['SubDomain']:
-					bw_domain_name = bw_domain['SubDomain']+"."+bw_domain['Domain']
-				else:
-					bw_domain_name = bw_domain['Domain']
+	#Load Wappalyzer for domain
+	if not API_Errors['ERROR_WPLZ']:
+		wapp_response_json = Wappalyzer_API_request(domain_name, wappalyzer_key)
+		if is_verbose:
+			print(json.dumps(wapp_response_json, indent=4, sort_keys=True))
+		##wappalyzer processing
+		if not WAPP_API_CREDIT_ERROR:
+			#parse JSON
+			count=0
+			for wapp_domain_object in wapp_response_json:
+				#CATCHES WAPPALYZER API ERROR //TODO
+				try:
+					wapp_domain_name = wapp_domain_object['url']
+				except:
+					exit()
+				wapp_techs = wapp_domain_object['technologies']
 				count+=1
-				bw_techs = bw_domain['Technologies']
-				bar_bw_tech_text = 'Parsing BuiltWith Technologies - '+str(count)+"/"+str(len(bw_domains))
-				bar_bw = ShadyBar(bar_bw_tech_text, max=len(bw_techs))
-				for bw_tech in bw_techs:
-					bar_bw.next()
-					bw_tech_name = bw_tech['Name']
-					bw_tech_category_name = bw_tech['Tag']
-					bw_tech_desc = bw_tech['Description']
-					tech_row = [bw_domain_name,'BuiltWith',bw_tech_category_name,bw_tech_name,bw_tech_desc]
-					tech_mining_data.append(tech_row)
-					if is_verbose:
+				bar_wapp_tech_text = 'Parsing Wappalyzer Technologies - '+str(count)+"/"+str(len(wapp_response_json))
+				bar_wapp_techs = ShadyBar(bar_wapp_tech_text, max=len(wapp_techs))
+				for wapp_tech in wapp_techs:
+					wapp_tech_name = wapp_tech['name']
+					wapp_tech_categories = wapp_tech['categories']
+					bar_wapp_techs.next()
+					for wapp_tech_category in wapp_tech_categories:
+						wapp_tech_category_name = wapp_tech_category['name']
+						tech_row = [wapp_domain_name,'Wappalyzer',wapp_tech_category_name,wapp_tech_name,"NO DESC"]
+						tech_mining_data.append(tech_row)
+						if is_verbose:
 							print(tech_row)
-				bar_bw.finish()
-			else:
-				pass
+				bar_wapp_techs.finish()
+	
+	#Load Builtwith
+	if not API_Errors['ERROR_BW']:
+		bw_response_json = BuiltWith_API_request(domain_name, builtwith_key)
+		if is_verbose:
+			print(json.dumps(bw_response_json, indent=4, sort_keys=True))
+		
+		if(not bw_response_json['Errors']):
+			pass
+		else:
+			if(bw_response_json['Errors'][-1]['Code']==-4):
+				BW_API_CREDIT_ERROR = True
+				print(f"{Fore.RED} [OUT OF API CREDITS] {Fore.WHITE} You ran out of BuiltWith API credits")
+		##builtwith processing
+		if not BW_API_CREDIT_ERROR:
+			count=0
+			#TODO:check for cases where results are empty
+			#TODO:check for type of error and return print based on the error code in response
+			if bw_response_json['Results'] and not bw_response_json['Errors']:
+				bw_domains = bw_response_json['Results'][0]['Result']['Paths']
+				for bw_domain in bw_domains:
+					if bw_domain['SubDomain']:
+						bw_domain_name = bw_domain['SubDomain']+"."+bw_domain['Domain']
+					else:
+						bw_domain_name = bw_domain['Domain']
+					count+=1
+					bw_techs = bw_domain['Technologies']
+					bar_bw_tech_text = 'Parsing BuiltWith Technologies - '+str(count)+"/"+str(len(bw_domains))
+					bar_bw = ShadyBar(bar_bw_tech_text, max=len(bw_techs))
+					for bw_tech in bw_techs:
+						bar_bw.next()
+						bw_tech_name = bw_tech['Name']
+						bw_tech_category_name = bw_tech['Tag']
+						bw_tech_desc = bw_tech['Description']
+						tech_row = [bw_domain_name,'BuiltWith',bw_tech_category_name,bw_tech_name,bw_tech_desc]
+						tech_mining_data.append(tech_row)
+						if is_verbose:
+								print(tech_row)
+					bar_bw.finish()
+				else:
+					pass
 	
 	return tech_mining_data
 
-def BulkDomainMiner(domain_list_csv, config ):
+def BulkDomainMiner(domain_list_csv, config, API_Errors):
 	#bulk techmining_data list
 	bulk_tech_mining_data = []
 	is_verbose = config['is_verbose']
@@ -208,7 +201,7 @@ def BulkDomainMiner(domain_list_csv, config ):
 				#Run SingleDomainMiner on current domain in list
 				domains_bar.next()
 				if(domain_name):
-					tech_mining_data = SingleDomainMiner(domain_name, config)
+					tech_mining_data = SingleDomainMiner(domain_name, config, API_Errors)
 					bulk_tech_mining_data.append(tech_mining_data)
 		domains_bar.finish()
 	return bulk_tech_mining_data
@@ -259,9 +252,14 @@ if(wappalyzer_key ==""):
 if(output_file_name ==""):
 	ERROR_NO_OUTPUT_FILE=True
 	print(f"{Fore.RED} [CONFIG FILE ERROR] {Fore.WHITE} No Output File Name Given")
+	exit()
+API_Errors = {'ERROR_BW':ERROR_BW, 'ERROR_WPLZ':ERROR_WPLZ}
+'''
+#In the case of an API error, stop the program
 if(ERROR_BW or ERROR_WPLZ or ERROR_NO_OUTPUT_FILE):
 	print(f"{Fore.RED} [ERROR] {Fore.WHITE} Fix config file")
 	quit()
+'''
 print("")
 print("CONFIG File Settings ('WebTechMiner_setup.json')")
 print("")
@@ -279,9 +277,9 @@ time.sleep(1)
 #RUN WebsiteTechMiner Functions based on arguments from user
 miner_results_list = []
 if args.single:
-	miner_results_list = SingleDomainMiner(args.single, config)
+	miner_results_list = SingleDomainMiner(args.single, config, API_Errors)
 elif args.bulk:
-	miner_results_list = BulkDomainMiner(args.bulk, config)
+	miner_results_list = BulkDomainMiner(args.bulk, config, API_Errors)
 else:
 	print("error")
 print(f"\n{Fore.GREEN} [+] {Fore.WHITE} Opening output CSV file. ")
