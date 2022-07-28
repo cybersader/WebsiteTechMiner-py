@@ -94,6 +94,17 @@ A little Python project to automate gathering website profiling data from "Built
 - Default without flags
 - Unlimited domains in command
 
+### 🐛 Bugs & TODOs
+- Stop WTM if you run out of API credits for all tools
+- Error fidelity on error prints
+- Multiple API tokens in config file or some csv file
+- More fields from APIs to csv
+- Ability to use flags for fields
+- Unlimited domains on command line
+- http and https flags
+- Default command with domains after
+- Add throttling features for when requests start dropping Wapp and BW
+
 ### 🌐 Discovery 
 - Recursive Subdomain discovery option
 - Connected website discovery
