@@ -102,7 +102,6 @@ A little Python project to automate gathering website profiling data from "Built
         - OneTrust Vendorpedia API
         - Other Vendor Risk Management DBs & APIs
     - Security Risk Score Attribution
-    - Gain additional information from other Vendor Risk Databases
-        - Security Scores from DBs & APIs
+    - Other additional information to pull in from external sources
         - Policies
         - Available Data Processing Agreement links?
