@@ -103,4 +103,6 @@ A little Python project to automate gathering website profiling data from "Built
         - Other Vendor Risk Management DBs & APIs
     - Security Risk Score Attribution
     - Gain additional information from other Vendor Risk Databases
-
+        - Security Scores from DBs & APIs
+        - Policies
+        - Available Data Processing Agreement links?
