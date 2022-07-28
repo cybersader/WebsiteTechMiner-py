@@ -86,14 +86,6 @@ A little Python project to automate gathering website profiling data from "Built
 
 ## 💎 Future Developments
 
-### API Functionalities
-- Ability to choose from more fields
-   - connected websites, location, recursive search, etc.
-- Add in multiple successive API keys
-   - CLI or in config
-- Default without flags
-- Unlimited domains in command
-
 ### 🐛 Bugs & TODOs
 - Stop WTM if you run out of API credits for all tools
 - Error fidelity on error prints
