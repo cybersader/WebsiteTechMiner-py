@@ -1,3 +1,4 @@
 ###### Requirements 6/29/2022 ######
 colorama
 progress
+requests
