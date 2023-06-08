@@ -20,7 +20,7 @@ A little Python project to automate gathering website profiling data from "Built
 <img src="https://user-images.githubusercontent.com/106132469/176921390-9b6c36c1-a97c-4bf8-9362-7eb356013238.png" width="100">  All data is exported into the CSV file designated in the config file.
 
 ### Contributions
-- Contributions are welcome! 😁  Just make a pull request.
+- Contributions are welcome! 😁  Just fork my repo and make a pull request.
 
 ## Getting Started
 
